@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+*{
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Muli', sans-serif;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+}
+
+.container{
+    display: flex;
+    width: 90vw;
+}
+
+.panel{
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 75vh;
+    border-radius: 30px;
+    color: #fff;
+    cursor: pointer;
+    flex: 0.5;
+    margin: 7px;
+    position: relative;
+    transition: all 850ms ease-in; /*easi-in empieza lenta y luego se acelera al final */
+    -webkit-transition: all 850ms ease-in; /*por tema de compatibilidad como safari */
+}
+
+.panel h3{
+    font-size: 24px;
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    margin: o;
+    opacity: 0;
+}
+
+.panel.active{
+    flex:5;
+}
+
+.panel.active h3{
+    opacity:1;
+    transition: opacity 0.3s ease-in 0.4s;
+}
+
+@media (max-width: 480px){
+    /* reglas aquí dentro se aplican SOLO si la pantalla es de 480px o menos */
+    .container{
+        width: 100vw;
+    }
+    .panel:nth-last-of-type(1),
+    .panel:nth-of-type(5) {
+    display: none;
+    /*Oculta el último panel (nth-last-of-type(1)) y el quinto (nth-of-type(5)) en pantallas pequeñas.
+
+Esto ayuda a simplificar la interfaz en móviles, donde hay menos espacio. */
+    }
+}
+
+
